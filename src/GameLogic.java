@@ -1,3 +1,7 @@
+/**
+ * The GameLogic class handles the logic of the game, including resetting buttons, shuffling,
+ * and setting colors.
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collections;
@@ -5,11 +9,20 @@ import java.util.List;
 
 public class GameLogic {
 
+    // Components and data structures for game logic
     private JPanel mainGridPanel;
     private List<JButton> buttonList;
     private JLabel congratulationMessage;
     private JButton[][] gameButtons;
 
+    /**
+     * Constructor for GameLogic class.
+     * Initializes the game logic with the provided components and data structures.
+     * @param mainGridPanel The main panel containing the game buttons.
+     * @param buttonList The list of buttons representing the game grid.
+     * @param congratulationMessage The label to display congratulatory messages.
+     * @param gameButtons The 2D array of buttons representing the game grid.
+     */
     public GameLogic(JPanel mainGridPanel, List<JButton> buttonList, JLabel congratulationMessage, JButton[][] gameButtons) {
         this.mainGridPanel = mainGridPanel;
         this.buttonList = buttonList;
@@ -17,6 +30,10 @@ public class GameLogic {
         this.gameButtons = gameButtons;
     }
 
+    /**
+     * Resets the game buttons to their initial state.
+     * Clears the panel, recreates buttons, and adds them to the panel.
+     */
     public void resetButtons() {
         mainGridPanel.removeAll();
         buttonList.clear();
@@ -44,6 +61,9 @@ public class GameLogic {
         mainGridPanel.revalidate();
     }
 
+    /**
+     * Shuffles the game buttons and updates the panel.
+     */
     public void shuffle() {
         mainGridPanel.removeAll();
         Collections.shuffle(buttonList);
@@ -60,6 +80,9 @@ public class GameLogic {
         mainGridPanel.revalidate();
     }
 
+    /**
+     * Sets the colors of game buttons alternatingly.
+     */
     public void colours() {
         int counter = 1;
 
